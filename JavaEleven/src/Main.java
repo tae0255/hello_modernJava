@@ -1,33 +1,19 @@
 import Chapter02.CallableExercise;
 import Chapter02.ComparatorExercise;
 import Chapter02.RunnableExercise;
+import Chapter05.StreamExercise;
+import Chapter06.CollectorExercise;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class Main {
     public static void main(String[] args){
-        //new ComparatorExercise()._test();
-        //new RunnableExercise()._test();
-        //new CallableExercise()._test();
 
-        MeaningOfThis m = new MeaningOfThis();
-        m.doIt();
-    }
-
-    public static class MeaningOfThis{
-        public final int value = 4;
-        public void doIt(){
-            int value = 6;
-            Runnable r = new Runnable() {
-                public final int value = 5;
-                @Override
-                public void run() {
-                    int value = 10;
-                    System.out.println(value);
-                    System.out.println(this.value);
-                }
-            };
-            r.run();
-        }
-
+        new CollectorExercise()._test();
     }
 
 }
