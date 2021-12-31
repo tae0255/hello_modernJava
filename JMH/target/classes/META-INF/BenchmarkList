@@ -1,0 +1,7 @@
+JMH S 24 Parallel.ParallelStreams S 54 Parallel.generated.ParallelStreams_parallelSum_jmhTest S 11 parallelSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 24 Parallel.ParallelStreams S 60 Parallel.generated.ParallelStreams_parallelRangedSum_jmhTest S 17 parallelRangedSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 24 Parallel.ParallelStreams S 52 Parallel.generated.ParallelStreams_rangedSum_jmhTest S 9 rangedSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 32 Parallel.ParallelStreamBenchmark S 64 Parallel.generated.ParallelStreamBenchmark_sequentialSum_jmhTest S 13 sequentialSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 32 Parallel.ParallelStreamBenchmark S 68 Parallel.generated.ParallelStreamBenchmark_parallelRangedSum_jmhTest S 17 parallelRangedSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 24 Parallel.ParallelStreams S 55 Parallel.generated.ParallelStreams_iterativeSum_jmhTest S 12 iterativeSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 24 Parallel.ParallelStreams S 56 Parallel.generated.ParallelStreams_sequentialSum_jmhTest S 13 sequentialSum S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 

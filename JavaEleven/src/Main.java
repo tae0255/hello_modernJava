@@ -1,19 +1,14 @@
-import Chapter02.CallableExercise;
-import Chapter02.ComparatorExercise;
-import Chapter02.RunnableExercise;
-import Chapter05.StreamExercise;
-import Chapter06.CollectorExercise;
+import Chapter07.CountWordsIteratively;
+import Chapter07.WordCounter;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
+import java.util.Locale;
 
 public class Main {
     public static void main(String[] args){
-
-        new CollectorExercise()._test();
+        //System.out.println(Runtime.getRuntime().availableProcessors());
+        CountWordsIteratively._test();
+        new WordCounter(0,true)._test();
     }
 
 }
