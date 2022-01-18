@@ -1,4 +1,4 @@
-package Chapter08;
+package CHAPTER08;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Stream;
 
 import static java.util.Map.entry;
@@ -16,13 +17,14 @@ public class MapProcessor {
     public MessageDigest messageDigest;
 
     public void _test(){
-        forEachEntry();
-        sortEntry();
-        getOrDefaultEntry();
-        computePattern();
-        removePattern();
-        replacePattern();
-        mergePattern();
+        //forEachEntry();
+        //sortEntry();
+        //getOrDefaultEntry();
+        //computePattern();
+        //removePattern();
+        //replacePattern();
+        //mergePattern();
+        concurrentHashMapExercise();
     }
 
     private void forEachEntry() {
@@ -124,7 +126,7 @@ public class MapProcessor {
                 entry("Cristina", "Matrix"),
                 entry("Olivia", "James bond")));
         favouriteMovies.replaceAll((friend, movie) -> movie.toUpperCase());
-
+        System.out.println(favouriteMovies);
     }
 
     private void mergePattern() {
@@ -133,9 +135,86 @@ public class MapProcessor {
 
         Map<String, String> everyone = new HashMap<>(family);
         everyone.putAll(friends); //키값이 충돌해 의도하지 않은 오류가 발생할 수 있다.
+        System.out.println(everyone);
 
         Map<String, String> everyone2 = new HashMap<>(family);
         friends.forEach((k,v)->everyone2.merge(k,v,(movie1, movie2)->movie1+" & "+movie2));
+        System.out.println(everyone2);
+
+        Map<String, Long> moviesToCount = new HashMap<>();
+        String movieName = "JamesBond";
+        Long count = moviesToCount.get(movieName);
+        if(count == null){
+            moviesToCount.put(movieName, 1L);
+        }else{
+            moviesToCount.put(movieName, count+1L);
+        }
+
+        moviesToCount.merge(movieName, 1L, (k, v)->v+1L);
+
+        Map<String, Integer> movies = new HashMap<>();
+        movies.put("JamesBond", 20);
+        movies.put("Matrix", 15);
+        movies.put("Harry Potter", 5);
+        /*Iterator<Map.Entry<String, Integer>> iterator = movies.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<String, Integer> entry = iterator.next();
+            if(entry.getValue() < 10){
+                iterator.remove();
+            }
+        }*/
+        movies.entrySet().removeIf(e -> e.getValue()<10);
+
+    }
+
+    private void concurrentHashMapExercise() {
+        ConcurrentHashMap<String, Long> map = new ConcurrentHashMap<>();
+        map.put("A",1L);
+        map.put("B",2L);
+        map.put("C",3L);
+        map.put("D",4L);
+        map.put("E",5L);
+        map.put("F",16L);
+
+        long parallelismThreshod = 1;
+        Optional<Long> maxValue = Optional.ofNullable(map.reduceValues(parallelismThreshod, Long::max));
+        System.out.println(maxValue);
+
+        System.out.println(map.mappingCount());
+        System.out.println(map.size());
+
+        System.out.println("#1 ==========================================");
+        ConcurrentHashMap.KeySetView<String, Long> set = map.keySet(0L);
+        System.out.println(map);
+        System.out.println(set);
+        System.out.println(set.getMappedValue());
+
+        System.out.println("#2 ==========================================");
+        ConcurrentHashMap.KeySetView<String, Long> kset = map.keySet();
+        System.out.println(kset.getMappedValue());
+
+        System.out.println("#3 ==========================================");
+        set.add("BYE");
+        System.out.println(map);
+        System.out.println(set);
+
+        System.out.println("#4 ==========================================");
+        map.replace("A", 100L);
+        map.put("HELLO", 1000L);
+        System.out.println(map);
+        System.out.println(set);
+
+        System.out.println("#5 ==========================================");
+        ConcurrentHashMap.KeySetView<String, Boolean> keySet = ConcurrentHashMap.newKeySet();
+        keySet.add("HELLO");
+        System.out.println(keySet);
+
+        System.out.println("#6 ==========================================");
+        ConcurrentHashMap.KeySetView<String, Boolean> keySet2 = ConcurrentHashMap.newKeySet(10);
+        keySet.add("HELLO");
+        System.out.println(keySet);
+        System.out.println(keySet.size());
+
 
     }
 

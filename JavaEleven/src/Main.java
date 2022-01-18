@@ -1,11 +1,8 @@
-import Chapter07.CountWordsIteratively;
-import Chapter07.WordCounter;
-import Chapter08.CollectionFactory;
-import Chapter08.ListSetProcessor;
-import Chapter08.MapProcessor;
-
-import java.util.List;
-import java.util.Locale;
+import CHAPTER09.Debugging;
+import CHAPTER09.Refactoring;
+import CHAPTER09.Testing;
+import STREAM_EXERCISE.EXERCISE01;
+import STREAM_EXERCISE.EXERCISE02;
 
 public class Main {
     public static void main(String[] args){
@@ -13,10 +10,16 @@ public class Main {
         //CountWordsIteratively._test();
         //new WordCounter(0,true)._test();
 
-        CollectionFactory._test();
-        ListSetProcessor._test();
-        new MapProcessor()._test();
+        //CollectionFactory._test();
+        //ListSetProcessor._test();
+        //new MapProcessor()._test();
 
+        //new EXERCISE01().exec();
+        //new EXERCISE02().exec();
+
+        //new Refactoring()._test();
+        //new Testing()._test();
+        new Debugging()._test();
     }
 
 }

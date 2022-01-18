@@ -1,7 +1,6 @@
-package Chapter08;
+package CHAPTER08;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ListSetProcessor {
 

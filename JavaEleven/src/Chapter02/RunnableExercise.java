@@ -1,4 +1,4 @@
-package Chapter02;
+package CHAPTER02;
 
 public class RunnableExercise {
 

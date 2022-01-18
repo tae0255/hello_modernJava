@@ -1,4 +1,4 @@
-package Chapter06;
+package CHAPTER06;
 
 import java.util.*;
 import java.util.function.*;

@@ -1,4 +1,4 @@
-package Chapter05;
+package CHAPTER05;
 
 public class Transaction {
     private final Trader trader;

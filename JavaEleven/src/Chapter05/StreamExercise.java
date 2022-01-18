@@ -1,4 +1,4 @@
-package Chapter05;
+package CHAPTER05;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

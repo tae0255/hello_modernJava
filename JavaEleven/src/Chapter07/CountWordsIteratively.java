@@ -1,4 +1,4 @@
-package Chapter07;
+package CHAPTER07;
 
 public class CountWordsIteratively {
 

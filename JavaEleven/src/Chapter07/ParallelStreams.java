@@ -1,4 +1,4 @@
-package Chapter07;
+package CHAPTER07;
 
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
